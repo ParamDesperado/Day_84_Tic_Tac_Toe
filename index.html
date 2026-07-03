@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe by Param Sangani</title>
+    <meta name="description"
+        content="Play Tic Tac Toe online against a friend or challenge the AI. Built by Param Sangani.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>✕ Tic Tac Toe ○</h1>
+            <p class="subtitle">Play against a friend or challenge the AI</p>
+        </header>
+
+        <!-- Mode Selector -->
+        <div class="mode-selector">
+            <button id="btn-pvp" class="active" title="Player vs Player">👥 vs Player</button>
+            <button id="btn-pvai" title="Player vs AI">🤖 vs AI</button>
+        </div>
+
+        <!-- AI Difficulty (hidden in PvP) -->
+        <div class="difficulty-row" id="difficulty-row" style="display:none;">
+            <span class="diff-label">AI Difficulty:</span>
+            <div class="diff-selector">
+                <button id="diff-easy" class="diff-btn">Easy</button>
+                <button id="diff-hard" class="diff-btn active">Hard</button>
+            </div>
+        </div>
+
+        <!-- Scoreboard -->
+        <div class="score-board">
+            <div class="score-card player-x">
+                <span class="score-icon">✕</span>
+                <span class="player-name" id="name-x">Player X</span>
+                <span class="score" id="score-x">0</span>
+            </div>
+            <div class="score-card draw">
+                <span class="score-icon">🤝</span>
+                <span class="player-name">Draws</span>
+                <span class="score" id="score-draw">0</span>
+            </div>
+            <div class="score-card player-o">
+                <span class="score-icon">○</span>
+                <span class="player-name" id="name-o">Player O</span>
+                <span class="score" id="score-o">0</span>
+            </div>
+        </div>
+
+        <!-- Status -->
+        <div class="status" id="status-display">
+            <span class="status-dot" id="status-dot-x"></span>
+            <span id="status-text">Player X's turn</span>
+            <span class="status-dot" id="status-dot-o" style="opacity:0;"></span>
+        </div>
+
+        <!-- Board -->
+        <div class="game-board" id="board">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+
+        <!-- Actions -->
+        <div class="action-row">
+            <button id="btn-restart" class="btn-action btn-restart" title="Restart current game">↺ Restart</button>
+            <button id="btn-reset-scores" class="btn-action btn-reset" title="Reset all scores">🗑 Reset Scores</button>
+        </div>
+
+        <footer>
+            <p>Designed &amp; Developed by <strong>Param Sangani</strong></p>
+        </footer>
+    </div>
+
+    <!-- Game Over Modal -->
+    <div class="modal" id="game-over-modal" role="dialog" aria-modal="true" aria-labelledby="modal-message">
+        <div class="modal-content">
+            <div class="modal-emoji" id="modal-emoji">🎉</div>
+            <h2 id="modal-message">Player X Wins!</h2>
+            <div class="modal-buttons">
+                <button id="btn-play-again">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
